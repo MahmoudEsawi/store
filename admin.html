@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - Online Shop</title>
+    <link rel="stylesheet" href="admin-styles.css">
+</head>
+<header>
+    <img src="images/obn.png" alt="Shop Logo" class="logo">
+
+</header>
+<body>
+    
+    <div id="loginSection">
+        <h2>Admin Login</h2>
+        <form id="loginForm" onsubmit="return adminLogin()">
+            <input type="email" id="adminEmail" placeholder="Email" required>
+            <input type="password" id="adminPassword" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        <p id="loginError" style="color: red; display: none;">Invalid email or password.</p>
+    </div>
+
+    <div id="adminDashboard" style="display: none;">
+        <h2>Admin Dashboard</h2>
+        <div id="adminActions">
+            <button onclick="showAddItemForm()">Add Item</button>
+            <button onclick="showEditItemForm()">Edit Item</button>
+            <button onclick="showRemoveItemForm()">Remove Item</button>
+        </div>
+
+        <div id="addItemForm" style="display: none;">
+            <h3>Add Item</h3>
+            <input type="text" id="newItemName" placeholder="Item Name" required>
+            <input type="text" id="newItemDetails" placeholder="Item Details" required>
+            <input type="number" id="newItemPrice" placeholder="Item Price" required>
+            <input type="text" id="newItemCategory" placeholder="Item Category" required>
+            <button onclick="addItem()">Add Item</button>
+        </div>
+
+        <div id="editItemForm" style="display: none;">
+            <h3>Edit Item</h3>
+            <input type="number" id="editItemId" placeholder="Item ID" required>
+            <input type="text" id="editItemName" placeholder="New Item Name">
+            <input type="text" id="editItemDetails" placeholder="New Item Details">
+            <input type="number" id="editItemPrice" placeholder="New Item Price">
+            <input type="text" id="editItemCategory" placeholder="New Item Category">
+            <button onclick="editItem()">Edit Item</button>
+        </div>
+
+        <div id="removeItemForm" style="display: none;">
+            <h3>Remove Item</h3>
+            <input type="number" id="removeItemId" placeholder="Item ID" required>
+            <button onclick="removeItem()">Remove Item</button>
+        </div>
+    </div>
+    <!-- In index.html or admin.html -->
+<div id="adminbutton">
+    <button onclick="window.location.href='index.html'">Back to Shop</button> <!-- On the admin page -->
+</div>
+
+
+    <script src="admin.js"></script>
+</body>
+</html>
